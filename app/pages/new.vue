@@ -21,12 +21,12 @@ async function addNewPost(event: Event) {
         body: html.value,
       },
     })
+
+    return navigateTo('/')
   }
   finally {
     loading.value = false
   }
-
-  return navigateTo('/')
 }
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: posts } = useFetch('/api/posts')
+const { data: posts, refresh, status } = useFetch('/api/posts')
 </script>
 
 <template>
@@ -15,5 +15,8 @@ const { data: posts } = useFetch('/api/posts')
       </hgroup>
       <div v-html="post.body" />
     </article>
+    <button :aria-busy="status === 'pending'" class="outline" @click="() => refresh()">
+      refresh posts
+    </button>
   </div>
 </template>

@@ -5,6 +5,18 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxt/eslint',
   ],
+  $production: {
+    nitro: {
+      storage: {
+        posts: {
+          driver: 'cloudflareKVHTTP',
+          accountId: process.env.CF_ACCOUNT_ID,
+          namespaceId: process.env.CF_NAMESPACE_ID,
+          apiToken: process.env.CF_API_TOKEN,
+        },
+      },
+    },
+  },
   $development: {
     nitro: {
       storage: {
@@ -16,7 +28,6 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-
   css: ['@picocss/pico'],
   runtimeConfig: {
     oauth: {
