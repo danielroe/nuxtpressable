@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: ['logged-in']
+  middleware: ['logged-in'],
 })
 
 const html = ref('hi')
@@ -18,10 +18,11 @@ async function addNewPost(event: Event) {
       body: {
         title,
         slug: title.toString().toLowerCase().replace(/\s+/g, '-'),
-        body: html.value
-      }
+        body: html.value,
+      },
     })
-  } finally {
+  }
+  finally {
     loading.value = false
   }
 
@@ -35,12 +36,19 @@ async function addNewPost(event: Event) {
     <form @submit.prevent="addNewPost">
       <label>
         title
-        <input name="title" required type="text" />
+        <input
+          name="title"
+          required
+          type="text"
+        >
       </label>
       <TiptapEditor v-model="html" />
-      <button :aria-busy="loading" type="submit">submit</button>
+      <button
+        :aria-busy="loading"
+        type="submit"
+      >
+        submit
+      </button>
     </form>
   </div>
 </template>
-
-

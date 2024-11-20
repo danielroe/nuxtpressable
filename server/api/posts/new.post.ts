@@ -1,13 +1,14 @@
-import { Post, validatePost } from "~~/shared/post"
+import type { Post } from '#shared/post'
+import { validatePost } from '#shared/post'
 
 const storage = useStorage('posts')
 
-export default defineEventHandler(async event => {
+export default defineEventHandler(async (event) => {
   const session = await getUserSession(event)
   if (!session.user) {
     throw createError({
       message: 'Not logged in',
-      status: 401
+      status: 401,
     })
   }
   const { body, slug, title } = await readValidatedBody(event, validatePost)
@@ -17,8 +18,8 @@ export default defineEventHandler(async event => {
     body,
     slug,
     author: session.user.name,
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
   } satisfies Post)
-  
+
   return null
 })

@@ -1,15 +1,15 @@
 export default defineOAuthGitHubEventHandler({
   config: {
     scope: ['user:email'],
-    emailRequired: true
+    emailRequired: true,
   },
-  async onSuccess(event, { user, tokens }) {
+  async onSuccess(event, { user }) {
     await setUserSession(event, {
       user: {
         name: user.name,
         email: user.email,
-        githubId: user.id
-      }
+        githubId: user.id,
+      },
     })
     return sendRedirect(event, '/')
   },
@@ -25,13 +25,5 @@ declare module '#auth-utils' {
     name: string
     email: string
     githubId: string
-  }
-
-  interface UserSession {
-    // Add your own fields
-  }
-
-  interface SecureSessionData {
-    // Add your own fields
   }
 }

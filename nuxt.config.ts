@@ -1,29 +1,38 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4
-  },
-
-  css: ['@picocss/pico'],
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
-  runtimeConfig: {
-    oauth: {
-      github: {
-        clientId: '',
-        clientSecret: ''
-      }
-    }
-  },
-  modules: ['nuxt-tiptap-editor', 'nuxt-auth-utils'],
+  modules: [
+    'nuxt-tiptap-editor',
+    'nuxt-auth-utils',
+    '@nuxt/eslint',
+  ],
   $development: {
     nitro: {
       storage: {
         posts: {
           driver: 'fsLite',
-          base: '.posts'
-        }
-      }
-    }
-  }
+          base: '.posts',
+        },
+      },
+    },
+  },
+  devtools: { enabled: true },
+
+  css: ['@picocss/pico'],
+  runtimeConfig: {
+    oauth: {
+      github: {
+        clientId: '',
+        clientSecret: '',
+      },
+    },
+  },
+  future: {
+    compatibilityVersion: 4,
+  },
+  compatibilityDate: '2024-04-03',
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
 })
