@@ -1,75 +1,40 @@
-# Nuxt Minimal Starter
+# Nuxt + WordPress (nuxtpressable)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a tiny, incomplete clone of WordPress built in [Nuxt](https://nuxt.com/) for a live-coding session at [Vue Toronto](https://vuetoronto.com/).
 
-## Setup
+<p align="center">
+  <a href="https://nuxtpressable.netlify.app/" target="_blank">
+    <img width="1090" alt="Screenshot of the nuxtpressable home page, displaying a single blog post" src="https://github.com/user-attachments/assets/919267b0-ef39-4884-8e4c-205a8ddd9f2f">
+  </a>
+</p>
 
-Make sure to install dependencies:
+- [✨ &nbsp;Live Demo](https://nuxtpressable.netlify.app/)
+<!-- - [🔈 &nbsp;Talk](https://www.youtube.com/watch?) -->
+
+## Features
+
+- Built with [Nuxt](https://nuxt.com/)
+- Authentication via [nuxt-auth-utils](https://github.com/atinux/nuxt-auth-utils) and GitHub OAuth
+- Data stored in [Cloudflare KV](https://developers.cloudflare.com/kv/) with [unstorage](https://unstorage.unjs.io/)
+- Tiptap editor via [nuxt-tiptap-editor](https://github.com/modbender/nuxt-tiptap-editor)
+- Light & dark mode using [pico.css](https://picocss.com/docs/)
+- Hosted on Netlify
+
+## Try it out
+
+### Setup
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# install dependencies
 pnpm install
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
+# serve in dev mode, with hot reload at localhost:3000
 pnpm dev
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# build for production + preview locally
+pnpm build && pnpm preview
 ```
 
-## Production
+## License
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+MIT
